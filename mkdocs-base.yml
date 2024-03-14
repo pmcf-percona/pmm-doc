@@ -11,8 +11,8 @@ edit_uri: edit/main/docs/
 
 theme:
   name: material
-  logo: _images/percona-logo.svg
-  favicon: _images/percona-favicon.ico
+  logo: assets/pmm-mark.svg
+  favicon: assets/pmm-fav.svg
   custom_dir: overrides/
   font:
     text: Roboto
@@ -22,23 +22,24 @@ theme:
     view: material/file-eye-outline
   
   palette:
-    # Light mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Color theme set to Automatic. Click to change
     - media: "(prefers-color-scheme: light)"
       scheme: percona-light
       primary: custom
       accent: custom
       toggle:
-        icon: material/toggle-switch-off-outline
-        name: Switch to dark mode
-
-    # Dark mode
+        icon: material/brightness-7
+        name: Color theme set to Light Mode. Click to change
     - media: "(prefers-color-scheme: dark)"
-      scheme: slate
+      scheme: percona-dark
       primary: custom
       accent: custom
       toggle:
-        icon: material/toggle-switch
-        name: Switch to light mode
+        icon: material/brightness-4
+        name: Color theme set to Dark Mode. Click to change
 
   # Theme features
 
@@ -54,16 +55,16 @@ theme:
 extra_css:
   - https://unicons.iconscout.com/release/v4.0.8/css/line.css
   - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css
-  - css/percona.css
   - css/lightgallery.min.css
   - css/extra.css
   - css/nocopy.css
   - css/design.css
   - css/osano.css
+  - css/pmm.css
 
 #Copyright
-copyright: >
-  <a href='https://www.percona.com/about'>Percona LLC</a> and/or its affiliates &copy; <script>document.write(new Date().getFullYear())</script>
+copyright: >-
+  <a href="https://www.percona.com/about">Percona LLC</a> and its affiliates &copy; <script>document.write(new Date().getFullYear())</script> — <a href="#" onclick="Osano.cm.showDrawer('osano-cm-dom-info-dialog-open')">Cookie Preferences</a>
   
 extra_javascript:
   #  - js/lightgallery.min.js
@@ -108,41 +109,19 @@ markdown_extensions:
 plugins:
   search:
     separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
-  git-revision-date: {}
-  meta-descriptions:
-    export_csv: false
-    quiet: false
-    enable_checks: false
-    min_length: 50
-    max_length: 160
+
+
   # https://mkdocs-macros-plugin.readthedocs.io/en/latest/
-  macros:
-    include_yaml:
-      - "variables.yml"
+
   # https://pypi.org/project/mkdocs-exclude/
-  exclude:
-    glob:
-      - "setting-up/client/docker.md"
+
   # https://github.com/orzih/mkdocs-with-pdf
-  with-pdf:
-    output_path: "_pdf/PerconaMonitoringAndManagement-2.41.1.pdf"
-    cover_title: "Percona Monitoring and Management Documentation"
-    cover_subtitle: 2.41.1 (Feb 2, 2024)
-    author: "Percona Technical Documentation Team"
-    cover_logo: docs/_images/Percona_Logo_Color.png
-    custom_template_path: _resources/templates
-    enabled_if_env: ENABLE_PDF_EXPORT
   # Check links - but extends build time significantly
   # https://pypi.org/project/mkdocs-htmlproofer-plugin/
   #    htmlproofer: {}
-  mike:
-    version_selector: false
-    css_dir: css
-    javascript_dir: js
-    canonical_version: null
+
 
 extra:
-  homepage: https://docs.percona.com
   edit_page_text: '<i class="uil uil-pen"></i> <b>Edit this page</b>'
   updated_text: '<i class="uil uil-refresh"></i> Page updated'
 

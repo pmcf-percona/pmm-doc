@@ -10,9 +10,6 @@ It allows you to observe the health of your database systems, explore new patter
 
 - Additional features include [advisors for database health assessments](details/develop-checks/index.md).
 
-!!! alert alert-info ""
-    This is the documentation for the latest release, **PMM {{release}}** ([Release Notes](release-notes/{{release}}.md)).
-
 Here's how the home page looks on our <a href='https://pmmdemo.percona.com/' target='_blank'>free, live demo system</a>.
 
 <a href='https://pmmdemo.percona.com/' target='_blank'>
